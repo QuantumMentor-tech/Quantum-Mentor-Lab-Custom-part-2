@@ -1,0 +1,48 @@
+# ─── Node.js ────────────────────────────────────────────────
+node_modules/
+backend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ─── Environment Variables ───────────────────────────────────
+.env
+.env.local
+.env.production
+backend/.env
+*.env.local
+
+# ─── Backups ─────────────────────────────────────────────────
+backups/generated/
+
+# ─── Uploads ─────────────────────────────────────────────────
+frontend/assets/images/uploads/
+backend/uploads/*
+!backend/uploads/images/
+!backend/uploads/images/.gitkeep
+!backend/uploads/documents/
+!backend/uploads/documents/.gitkeep
+
+# ─── OS Files ────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ─── Logs ────────────────────────────────────────────────────
+*.log
+logs/
+*.log.*
+
+# ─── IDE / Editor ────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# ─── Build Artifacts ─────────────────────────────────────────
+dist/
+build/
+.cache/

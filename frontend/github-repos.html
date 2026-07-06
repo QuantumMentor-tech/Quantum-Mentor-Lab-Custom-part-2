@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Open Source GitHub Repositories | Quantum Mentor World</title>
+  <meta name="description" content="Discover educational and open-source GitHub repositories for programming, web development, AI, tools, and learning projects." />
+  <meta name="robots" content="index, follow" />
+  <!-- Replace https://quantummentorworld.com with the real production domain before launch. -->
+  <link rel="canonical" href="https://quantummentorworld.com/github-repos.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Open Source GitHub Repositories | Quantum Mentor World" />
+  <meta property="og:description" content="Discover educational and open-source GitHub repositories for programming, web development, AI, tools, and learning projects." />
+  <meta property="og:url" content="https://quantummentorworld.com/github-repos.html" />
+  <meta property="og:site_name" content="Quantum Mentor World" />
+  <meta property="og:image" content="https://quantummentorworld.com/assets/images/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Open Source GitHub Repositories | Quantum Mentor World" />
+  <meta name="twitter:description" content="Discover educational and open-source GitHub repositories for programming, web development, AI, tools, and learning projects." />
+  <meta name="twitter:image" content="https://quantummentorworld.com/assets/images/logo.png" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header id="site-header" role="banner">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+      <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+        <img src="assets/images/logo.png" alt="Quantum Mentor Official Logo" height="40" onerror="this.style.display='none'" />
+        <span style="font-family:var(--font-primary);font-weight:700;font-size:var(--text-xl);color:var(--primary);">Quantum Mentor World</span>
+      </a>
+      <nav aria-label="Main navigation" style="display: flex; gap: 16px;">
+        <a href="software.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Software</a>
+        <a href="books.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Books</a>
+        <a href="tools.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Tools</a>
+        <a href="games.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Games</a>
+        <a href="themes-plugins.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Themes</a>
+        <a href="watch.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Watch</a>
+        <a href="news.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">News</a>
+        <a href="github-repos.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--primary);">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero" style="background:var(--gradient-hero);padding: var(--space-8) 0;border-bottom: 1px solid var(--border-soft);">
+      <div class="container text-center">
+        <p class="eyebrow" style="font-size: var(--text-xs); text-transform: uppercase; color: var(--primary); letter-spacing: 0.1em; font-weight: 600; margin-bottom: 8px;">Legal Resource Directory</p>
+        <h1 style="font-size: var(--text-4xl); margin-bottom: var(--space-2);">🐙 GitHub Repositories</h1>
+        <p style="color: var(--text-muted); font-size: var(--text-sm); max-width: 600px; margin: 0 auto var(--space-4) auto;">Browse selected educational GitHub repositories, code examples, roadmap diagrams, and open-source packages.</p>
+        
+        <div style="max-width: 600px; margin: 0 auto;">
+          <div class="legal-note" style="background: rgba(34, 197, 94, 0.05); border: 1px solid rgba(34, 197, 94, 0.15); font-size: var(--text-xs); padding: 8px 12px; border-radius: var(--radius-md); color: var(--accent-success);">
+            <strong>Safe Listing:</strong> This list contains only legal, open-source repositories. No unauthorized software leaks, cracking scripts, or malware tools are tolerated.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls / Filters -->
+    <section class="listing-controls" style="padding: 24px 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border-soft);">
+      <div class="container">
+        <div class="filter-grid" style="display: grid; grid-template-columns: 2fr repeat(5, 1fr); gap: 12px; align-items: center; margin-bottom: 16px;">
+          <div>
+            <input id="resource-search-input" class="form-input" type="search" placeholder="Search GitHub repos..." style="padding: 10px 14px; font-size: var(--text-sm);" />
+          </div>
+          <div>
+            <select id="resource-sort-select" class="form-select" style="padding: 10px 14px; font-size: var(--text-sm); background-color: var(--bg-main);">
+              <option value="latest">Latest</option>
+              <option value="oldest">Oldest</option>
+              <option value="title_asc">Title A-Z</option>
+              <option value="title_desc">Title Z-A</option>
+              <option value="popular">Popular</option>
+            </select>
+          </div>
+          <div>
+            <select id="resource-category-select" class="form-select" style="padding: 10px 14px; font-size: var(--text-sm); background-color: var(--bg-main);">
+              <option value="">All Categories</option>
+            </select>
+          </div>
+          <div>
+            <select id="resource-tag-select" class="form-select" style="padding: 10px 14px; font-size: var(--text-sm); background-color: var(--bg-main);">
+              <option value="">All Tags</option>
+            </select>
+          </div>
+          <div>
+            <select id="resource-access-select" class="form-select" style="padding: 10px 14px; font-size: var(--text-sm); background-color: var(--bg-main);">
+              <option value="">All Access Types</option>
+              <option value="free">Free</option>
+              <option value="paid">Paid</option>
+              <option value="freemium">Freemium</option>
+              <option value="open_source">Open Source</option>
+              <option value="public_domain">Public Domain</option>
+              <option value="external">External</option>
+            </select>
+          </div>
+          <div>
+            <select id="resource-source-select" class="form-select" style="padding: 10px 14px; font-size: var(--text-sm); background-color: var(--bg-main);">
+              <option value="">All Source Types</option>
+              <option value="official">Official</option>
+              <option value="open_source">Open Source</option>
+              <option value="public_domain">Public Domain</option>
+              <option value="freeware">Freeware</option>
+              <option value="creator_approved">Creator Approved</option>
+              <option value="licensed">Licensed</option>
+              <option value="educational">Educational</option>
+            </select>
+          </div>
+        </div>
+        <div class="filter-actions" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <div id="resource-active-filters" class="active-filters" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+          <button id="resource-clear-filters" class="btn btn-ghost btn-sm" style="display: none;">Clear Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources Listing Grid -->
+    <section class="resource-section" style="padding: var(--space-8) 0;">
+      <div class="container">
+        <p id="resource-status-text" class="result-status" style="margin-bottom: 16px; font-size: var(--text-sm); color: var(--text-muted); font-weight: 500;"></p>
+        <div id="resource-loading" style="display: none;"></div>
+        <div id="resource-error" style="display: none;"></div>
+        <div id="resource-empty" style="display: none;"></div>
+        <div id="resource-grid" class="resource-grid"></div>
+        <div id="resource-pagination" class="pagination" style="margin-top: var(--space-8); display: flex; justify-content: center; gap: 8px;"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" role="contentinfo">
+    <p>&copy; 2024 Quantum Mentor World — Quantum Mentor Official. All rights reserved.</p>
+    <p style="margin-top:8px;font-size:var(--text-xs); color: var(--text-subtle);">All resources are verified legal and safe.</p>
+  </footer>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/filters.js"></script>
+  <script src="assets/js/pagination.js"></script>
+  <script src="assets/js/resources.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Manage Tags — Admin | Quantum Mentor World</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+  
+  <!-- Session Protection Guard -->
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script>
+    window.AdminAuth.requireAdminPage();
+  </script>
+</head>
+<body class="admin-body">
+
+  <!-- Admin Sidebar -->
+  <aside id="admin-sidebar" class="admin-sidebar" aria-label="Admin navigation">
+    <div class="admin-sidebar-brand">
+      <img src="../assets/images/logo.png" alt="Quantum Mentor Logo" height="32" onerror="this.style.display='none'" />
+      <div class="admin-sidebar-logo-text">
+        Quantum Mentor
+        <span>Official Admin</span>
+      </div>
+    </div>
+
+    <nav class="admin-sidebar-nav" aria-label="Admin menu">
+      <div class="admin-nav-section">
+        <p class="admin-nav-section-title">Overview</p>
+        <a href="dashboard.html" class="admin-nav-link">📊 Dashboard</a>
+      </div>
+      <div class="admin-nav-section">
+        <p class="admin-nav-section-title">Content Management</p>
+        <a href="resources.html" class="admin-nav-link">📦 Resources</a>
+        <a href="add-resource.html" class="admin-nav-link">➕ Add Resource</a>
+        <a href="categories.html" class="admin-nav-link">📂 Categories</a>
+        <a href="tags.html" class="admin-nav-link active">🏷️ Tags</a>
+        <a href="media.html" class="admin-nav-link">🖼️ Media</a>
+        <a href="contact-messages.html" class="admin-nav-link">📬 Contact Messages</a>
+        <a href="reports.html" class="admin-nav-link">⚠️ Reports</a>
+      </div>
+      <div class="admin-nav-section">
+        <p class="admin-nav-section-title">System Settings</p>
+        <a href="settings.html" class="admin-nav-link">⚙️ Settings</a>
+        <a href="../index.html" class="admin-nav-link" target="_blank">🌐 View Website ↗</a>
+        <a href="#" id="admin-logout-button" class="admin-nav-link btn-logout">🚪 Logout</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Admin Main Content -->
+  <div class="admin-main">
+    
+    <!-- Top Bar -->
+    <header class="admin-topbar">
+      <button id="sidebar-toggle" class="btn-icon" aria-label="Toggle sidebar">☰</button>
+      <div class="admin-breadcrumbs">
+        <span>Admin</span> / <span>Tags</span>
+      </div>
+      <div class="admin-topbar-actions">
+        <a href="../index.html" class="btn btn-secondary btn-sm" target="_blank">View Website ↗</a>
+        <div class="admin-user-pill">
+          <div class="admin-avatar">A</div>
+          <div style="text-align: left;">
+            <div id="admin-user-name" class="user-name">Loading...</div>
+            <span id="admin-user-role" class="admin-role-badge">Guest</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Panel -->
+    <main class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Manage Tags</h1>
+          <p class="admin-page-subtitle">Add key search tag identifiers and moderate indexing definitions.</p>
+        </div>
+      </div>
+
+      <div class="admin-split-pane">
+        
+        <!-- Left Pane: Add Tag Form -->
+        <section class="admin-card add-pane" aria-label="Add tag form">
+          <h3 class="card-title">🏷️ Add New Tag</h3>
+          <form id="admin-add-tag-form" class="admin-form compact-form">
+            <div class="admin-form-field">
+              <label for="tag-name">Tag Name <span class="text-danger">*</span></label>
+              <input type="text" id="tag-name" class="admin-input" placeholder="e.g. windows, python, utilities" required />
+            </div>
+
+            <div class="admin-form-field">
+              <label for="tag-slug">URL Slug <span class="text-danger">*</span></label>
+              <input type="text" id="tag-slug" class="admin-input" placeholder="e.g. windows" required />
+            </div>
+
+            <div class="admin-form-field">
+              <label for="tag-description">Description</label>
+              <textarea id="tag-description" class="admin-textarea" rows="3" placeholder="Tag description or indexing purpose..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full" style="margin-top:16px;">🏷️ Create Tag</button>
+            <p class="text-xs text-muted text-center" style="margin-top:8px;">Tag creation will be connected in Step 14.</p>
+          </form>
+        </section>
+
+        <!-- Right Pane: Tag Listing List -->
+        <section class="admin-card list-pane" aria-label="Tags list table">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <h3 class="card-title" style="margin-bottom:0;">🏷️ Active Index Tags</h3>
+            <input type="text" id="tag-search" class="admin-input input-sm" style="width:200px;" placeholder="🔍 Search tags..." />
+          </div>
+          
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Slug</th>
+                  <th>Status</th>
+                  <th style="width: 100px; text-align: center;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tag-tbody">
+                <tr>
+                  <td colspan="4" style="text-align:center; padding:24px;">Loading tags library...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts Loading Order -->
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-layout.js"></script>
+  <script src="../assets/js/admin-tags.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

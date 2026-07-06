@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Resource Details | Quantum Mentor World</title>
+  <meta name="description" content="View safe links, custom fields, and official details for resources on Quantum Mentor World." />
+  <meta name="robots" content="index, follow" />
+  <!-- Replace https://quantummentorworld.com with the real production domain before launch. -->
+  <link rel="canonical" href="https://quantummentorworld.com/resource-detail.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Resource Details | Quantum Mentor World" />
+  <meta property="og:description" content="View safe links, custom fields, and official details for resources on Quantum Mentor World." />
+  <meta property="og:url" content="https://quantummentorworld.com/resource-detail.html" />
+  <meta property="og:site_name" content="Quantum Mentor World" />
+  <meta property="og:image" content="https://quantummentorworld.com/assets/images/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Resource Details | Quantum Mentor World" />
+  <meta name="twitter:description" content="View safe links, custom fields, and official details for resources on Quantum Mentor World." />
+  <meta name="twitter:image" content="https://quantummentorworld.com/assets/images/logo.png" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header id="site-header" role="banner">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+      <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+        <img src="assets/images/logo.png" alt="Quantum Mentor Official Logo" height="40" onerror="this.style.display='none'" />
+        <span style="font-family:var(--font-primary);font-weight:700;font-size:var(--text-xl);color:var(--primary);">Quantum Mentor World</span>
+      </a>
+      <nav aria-label="Main navigation" style="display: flex; gap: 16px;">
+        <a href="software.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Software</a>
+        <a href="books.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Books</a>
+        <a href="tools.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Tools</a>
+        <a href="games.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Games</a>
+        <a href="themes-plugins.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Themes</a>
+        <a href="watch.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Watch</a>
+        <a href="news.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">News</a>
+        <a href="github-repos.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="container" style="padding: var(--space-8) var(--space-6);">
+      
+      <!-- State Handlers -->
+      <div id="detail-loading" class="state-message">
+        <div class="skeleton" style="width: 100%; height: 350px; margin-bottom: 24px; border-radius: var(--radius-lg);"></div>
+        <p style="color: var(--text-muted);">Loading resource details...</p>
+      </div>
+
+      <div id="detail-error" style="display: none;"></div>
+
+      <!-- Resource Content (Hidden while loading) -->
+      <div id="detail-content" style="display: none;">
+        
+        <!-- Hero Information Section -->
+        <section class="detail-hero" style="margin-bottom: var(--space-8); border-bottom: 1px solid var(--border-soft); padding-bottom: var(--space-6);">
+          <div id="detail-badges-row" class="badges-row" style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px;">
+            <!-- Badge elements render here -->
+          </div>
+          <h1 id="detail-title" style="font-size: var(--text-4xl); margin-bottom: 12px; color: var(--text-main);"></h1>
+          <p id="detail-short-description" style="font-size: var(--text-lg); color: var(--text-muted); line-height: 1.5; max-width: 800px;"></p>
+        </section>
+
+        <!-- Main Column Layout -->
+        <div class="detail-layout" style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-8);">
+          
+          <!-- Left Column: Details, description, action buttons -->
+          <div class="detail-main" style="display: flex; flex-direction: column; gap: var(--space-8);">
+            
+            <div id="detail-image-container">
+              <!-- Featured Image or Fallback block -->
+            </div>
+
+            <div class="detail-section">
+              <h2 class="detail-section-title" style="font-size: var(--text-2xl); margin-bottom: var(--space-4); font-family: var(--font-primary);">Description</h2>
+              <div id="detail-description" class="detail-description" style="color: var(--text-main); font-size: var(--text-base); line-height: 1.7; white-space: pre-line; word-break: break-word;">
+                <!-- Full description renders here -->
+              </div>
+            </div>
+
+            <div class="detail-section">
+              <h2 class="detail-section-title" style="font-size: var(--text-lg); margin-bottom: var(--space-3);">Categories</h2>
+              <div id="detail-categories" class="detail-badge-list" style="display: flex; flex-wrap: wrap;">
+                <!-- category badges -->
+              </div>
+            </div>
+
+            <div class="detail-section">
+              <h2 class="detail-section-title" style="font-size: var(--text-lg); margin-bottom: var(--space-3);">Tags</h2>
+              <div id="detail-tags" class="detail-badge-list" style="display: flex; flex-wrap: wrap;">
+                <!-- tags badges -->
+              </div>
+            </div>
+
+            <div class="detail-section">
+              <h2 class="detail-section-title" style="font-size: var(--text-2xl); margin-bottom: var(--space-4); font-family: var(--font-primary);">Safe External Links</h2>
+              <p style="font-size: var(--text-sm); color: var(--text-muted); margin-bottom: 16px;">Clicking any external resource will trigger a safety notice overlay first.</p>
+              <div id="detail-safe-links" class="safe-links-list" style="display: flex; flex-wrap: wrap;">
+                <!-- Links buttons render dynamically -->
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: System Spec properties & legal policy notices -->
+          <div class="detail-sidebar" style="display: flex; flex-direction: column; gap: var(--space-8);">
+            
+            <div class="detail-section">
+              <h2 class="detail-section-title" style="font-size: var(--text-xl); margin-bottom: var(--space-4); font-family: var(--font-primary);">System Properties</h2>
+              <div id="detail-info-grid" class="detail-info-grid" style="display: grid; grid-template-columns: 1fr; gap: var(--space-3);">
+                <!-- metadata list properties -->
+              </div>
+            </div>
+
+            <div class="detail-section">
+              <div class="legal-warning-box legal-note" style="line-height: 1.6;">
+                <h3 style="font-size: var(--text-sm); margin-bottom: 8px; color: var(--accent-success);">Directory Legal Policy Notice</h3>
+                <p style="font-size: var(--text-xs); color: var(--text-muted);">
+                  Quantum Mentor World only lists legal, official, open-source, public-domain, freeware, creator-approved, educational, or properly licensed resources. Always verify external links before downloading or using them.
+                </p>
+              </div>
+            </div>
+
+            <div class="detail-section">
+              <button id="open-report-button" class="btn btn-ghost" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; font-size: var(--text-sm); border: 1px solid var(--border-soft); color: var(--text-muted);">
+                <span>⚠️</span> Report Broken / Unsafe Link
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Safe Links warnings modal structure overlay -->
+  <div id="safe-link-modal" class="modal-backdrop" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-overlay); align-items: center; justify-content: center; z-index: 2000; padding: 16px; backdrop-filter: blur(4px);">
+    <div class="modal-card modal" style="background: var(--bg-secondary); border: 1px solid var(--border-primary); max-width: 500px; width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-hover); overflow: hidden; display: flex; flex-direction: column;">
+      <div style="padding: var(--space-5) var(--space-6); background: rgba(0, 212, 255, 0.05); border-bottom: 1px solid var(--border-soft);">
+        <h3 id="safe-link-modal-title" class="modal-title" style="font-size: var(--text-lg); color: var(--primary);">External Resource Redirection</h3>
+      </div>
+      <div style="padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-4);">
+        <p style="font-size: var(--text-sm); color: var(--text-main); line-height: 1.6;">
+          You are leaving Quantum Mentor World and accessing the following external website:
+        </p>
+        <div style="background: var(--bg-main); padding: 12px 16px; border: 1px solid var(--border-soft); border-radius: var(--radius-md); font-family: var(--font-mono); font-size: var(--text-sm); color: var(--primary); word-break: break-all;" id="safe-link-modal-url" class="modal-url">
+          example.com
+        </div>
+        <div class="safety-note" style="font-size: var(--text-xs); line-height: 1.5;">
+          <strong>Safety Assurance:</strong> This link is verified as legal and clean. Always exercise caution when visiting external hosts.
+        </div>
+      </div>
+      <div class="modal-actions" style="padding: var(--space-4) var(--space-6); background: rgba(255,255,255,0.02); border-top: 1px solid var(--border-soft); display: flex; justify-content: flex-end; gap: 12px;">
+        <button id="safe-link-cancel" class="btn btn-ghost btn-sm">Cancel</button>
+        <button id="safe-link-confirm" class="btn btn-primary btn-sm">Proceed to Link</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resource Report Modal -->
+  <div id="report-modal" class="modal-backdrop" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-overlay); align-items: center; justify-content: center; z-index: 2000; padding: 16px; backdrop-filter: blur(4px);">
+    <div class="modal-card modal" style="background: var(--bg-secondary); border: 1px solid var(--border-primary); max-width: 500px; width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-hover); overflow: hidden; display: flex; flex-direction: column;">
+      <div style="padding: var(--space-5) var(--space-6); background: rgba(231, 76, 60, 0.05); border-bottom: 1px solid var(--border-soft); display:flex; justify-content:space-between; align-items:center;">
+        <h3 class="modal-title" style="font-size: var(--text-lg); color: #e74c3c; margin: 0;">Report Link or Resource Issue</h3>
+      </div>
+      <form id="report-form" style="display: flex; flex-direction: column; overflow: hidden; margin: 0;" novalidate>
+        <div style="padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-4); max-height: 450px; overflow-y: auto;">
+          <div id="report-success" class="alert alert-success" style="display:none; padding: 12px; border-radius: 4px; background: rgba(46,204,113,0.1); color:#2ecc71; border:1px solid rgba(46,204,113,0.2); font-size: var(--text-xs);"></div>
+          <div id="report-error" class="alert alert-danger" style="display:none; padding: 12px; border-radius: 4px; background: rgba(231,76,60,0.1); color:#e74c3c; border:1px solid rgba(231,76,60,0.2); font-size: var(--text-xs);"></div>
+
+          <div class="form-group">
+            <label class="form-label" for="report-type">Issue Type *</label>
+            <select id="report-type" class="form-input" style="background: var(--bg-main); color: var(--text-main); width: 100%; padding: 8px 12px; border-radius: 4px; border: 1px solid var(--border-soft);" required>
+              <option value="broken_link">Broken Link (Does not work)</option>
+              <option value="unsafe_link">Unsafe Link (Malware, Phishing, Scam)</option>
+              <option value="copyright_issue">Copyright Issue / DMCA</option>
+              <option value="wrong_information">Wrong Information</option>
+              <option value="other">Other Issue</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reporter-name">Your Name (Optional)</label>
+            <input id="reporter-name" class="form-input" type="text" placeholder="John Doe" style="width: 100%; padding: 8px 12px; border-radius: 4px; border: 1px solid var(--border-soft);" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reporter-email">Your Email (Optional)</label>
+            <input id="reporter-email" class="form-input" type="email" placeholder="john@example.com" style="width: 100%; padding: 8px 12px; border-radius: 4px; border: 1px solid var(--border-soft);" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="report-message">Description / Details *</label>
+            <textarea id="report-message" class="form-textarea" placeholder="Please describe the issue in detail..." style="min-height:100px; width: 100%; padding: 8px 12px; border-radius: 4px; border: 1px solid var(--border-soft);" required></textarea>
+          </div>
+        </div>
+
+        <div class="modal-actions" style="padding: var(--space-4) var(--space-6); background: rgba(255,255,255,0.02); border-top: 1px solid var(--border-soft); display: flex; justify-content: flex-end; gap: 12px;">
+          <button type="button" id="report-cancel" class="btn btn-ghost btn-sm">Cancel</button>
+          <button type="submit" id="report-submit" class="btn btn-danger btn-sm">Submit Report</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer id="site-footer" role="contentinfo">
+    <p>&copy; 2024 Quantum Mentor World — Quantum Mentor Official. All rights reserved.</p>
+    <p style="margin-top:8px;font-size:var(--text-xs); color: var(--text-subtle);">All resources are verified legal and safe.</p>
+  </footer>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/safe-links.js"></script>
+  <script src="assets/js/seo.js"></script>
+  <script src="assets/js/resource-detail.js"></script>
+</body>
+</html>

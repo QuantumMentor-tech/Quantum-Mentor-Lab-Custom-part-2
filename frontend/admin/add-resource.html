@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Add Resource — Admin | Quantum Mentor World</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+  
+  <!-- Session Protection Guard -->
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script>
+    window.AdminAuth.requireAdminPage();
+  </script>
+</head>
+<body class="admin-body">
+
+  <!-- Admin Sidebar -->
+  <aside id="admin-sidebar" class="admin-sidebar" aria-label="Admin navigation">
+    <div class="admin-sidebar-brand">
+      <img src="../assets/images/logo.png" alt="Quantum Mentor Logo" height="32" onerror="this.style.display='none'" />
+      <div class="admin-sidebar-logo-text">
+        Quantum Mentor
+        <span>Official Admin</span>
+      </div>
+    </div>
+
+    <nav class="admin-sidebar-nav" aria-label="Admin menu">
+      <div class="admin-nav-section">
+        <p class="admin-nav-section-title">Overview</p>
+        <a href="dashboard.html" class="admin-nav-link">📊 Dashboard</a>
+      </div>
+      <div class="admin-nav-section">
+        <p class="admin-nav-section-title">Content Management</p>
+        <a href="resources.html" class="admin-nav-link">📦 Resources</a>
+        <a href="add-resource.html" class="admin-nav-link active">➕ Add Resource</a>
+        <a href="categories.html" class="admin-nav-link">📂 Categories</a>
+        <a href="tags.html" class="admin-nav-link">🏷️ Tags</a>
+        <a href="media.html" class="admin-nav-link">🖼️ Media</a>
+        <a href="contact-messages.html" class="admin-nav-link">📬 Contact Messages</a>
+        <a href="reports.html" class="admin-nav-link">⚠️ Reports</a>
+      </div>
+      <div class="admin-nav-section">
+        <p class="admin-nav-section-title">System Settings</p>
+        <a href="settings.html" class="admin-nav-link">⚙️ Settings</a>
+        <a href="../index.html" class="admin-nav-link" target="_blank">🌐 View Website ↗</a>
+        <a href="#" id="admin-logout-button" class="admin-nav-link btn-logout">🚪 Logout</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Admin Main Content -->
+  <div class="admin-main">
+    
+    <!-- Top Bar -->
+    <header class="admin-topbar">
+      <button id="sidebar-toggle" class="btn-icon" aria-label="Toggle sidebar">☰</button>
+      <div class="admin-breadcrumbs">
+        <span>Admin</span> / <a href="resources.html">Resources</a> / <span>Add</span>
+      </div>
+      <div class="admin-topbar-actions">
+        <a href="../index.html" class="btn btn-secondary btn-sm" target="_blank">View Website ↗</a>
+        <div class="admin-user-pill">
+          <div class="admin-avatar">A</div>
+          <div style="text-align: left;">
+            <div id="admin-user-name" class="user-name">Loading...</div>
+            <span id="admin-user-role" class="admin-role-badge">Guest</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Panel -->
+    <main class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Add New Resource</h1>
+          <p class="admin-page-subtitle">Publish a new catalog entry to the website directory.</p>
+        </div>
+      </div>
+
+      <!-- Legal Disclaimer Box -->
+      <div class="admin-legal-box warning-box" style="margin-bottom: 24px;">
+        <h3>⚠️ STRICT LEGAL & SAFETY WARNING</h3>
+        <p>You must only add legal, official, open-source, public-domain, freeware, creator-approved, educational, or properly licensed resources. <strong>Do NOT upload or link to:</strong> cracked software, pirated content, nulled themes/plugins, illegal license keys, leaked courses, malware, phishing, or unsafe download links. Unapproved download links will trigger validation rejections.</p>
+      </div>
+
+      <form id="admin-resource-form" class="admin-form">
+        
+        <!-- SECTION 1: Basic Information -->
+        <fieldset class="admin-form-section">
+          <legend>📋 Basic Information</legend>
+          <div class="admin-form-grid">
+            <div class="admin-form-field">
+              <label for="res-title">Resource Title <span class="text-danger">*</span></label>
+              <input type="text" id="res-title" class="admin-input" placeholder="e.g. VS Code, Blender, etc." required />
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-slug">URL Slug <span class="text-danger">*</span></label>
+              <input type="text" id="res-slug" class="admin-input" placeholder="e.g. vs-code" required />
+              <span class="text-xs text-muted">Auto-generated from title, must be unique.</span>
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-type">Resource Type <span class="text-danger">*</span></label>
+              <select id="res-type" class="admin-select" required>
+                <option value="">Select Type</option>
+                <option value="software">Software</option>
+                <option value="book">Book</option>
+                <option value="tool">Tool</option>
+                <option value="game">Game</option>
+                <option value="theme_plugin">Theme/Plugin</option>
+                <option value="watch">Watch Feed</option>
+                <option value="news">News</option>
+                <option value="github_repo">GitHub Repo</option>
+              </select>
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-featured-image">Featured Image URL</label>
+              <div style="display:flex; gap:8px;">
+                <input type="url" id="res-featured-image" class="admin-input" placeholder="e.g. http://localhost:5000/api/uploads/images/cover.jpg" style="flex-grow:1;" />
+                <button type="button" id="btn-select-media" class="btn btn-secondary btn-sm" style="white-space:nowrap; padding: 8px 12px;">📁 Choose</button>
+              </div>
+            </div>
+
+            <div class="admin-form-field full-width">
+              <label for="res-short-desc">Short Description <span class="text-danger">*</span></label>
+              <textarea id="res-short-desc" class="admin-textarea" rows="2" placeholder="Brief summary for listings cards (max 200 chars)..." required></textarea>
+            </div>
+
+            <div class="admin-form-field full-width">
+              <label for="res-full-desc">Full Description</label>
+              <textarea id="res-full-desc" class="admin-textarea" rows="5" placeholder="Detailed description of the resource (supports rich content)..."></textarea>
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-status">Publication Status</label>
+              <select id="res-status" class="admin-select">
+                <option value="draft">Draft</option>
+                <option value="pending_review">Pending Review</option>
+                <option value="published">Published (Requires Legal Approval)</option>
+              </select>
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-visibility">Visibility Mode</label>
+              <select id="res-visibility" class="admin-select">
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+              </select>
+            </div>
+
+            <div class="admin-form-field" style="display:flex; align-items:center; gap:8px;">
+              <input type="checkbox" id="res-is-featured" class="admin-checkbox" />
+              <label for="res-is-featured" style="margin-bottom:0;">⭐ Feature this resource</label>
+            </div>
+
+            <div class="admin-form-field" style="display:flex; align-items:center; gap:8px;">
+              <input type="checkbox" id="res-is-trending" class="admin-checkbox" />
+              <label for="res-is-trending" style="margin-bottom:0;">🔥 Mark as trending</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- SECTION 2: Legal and Safety Review -->
+        <fieldset class="admin-form-section highlight-section">
+          <legend>🛡️ Legal & Safety Compliance Review</legend>
+          
+          <div id="compliance-alert-box" class="admin-form-alert info-alert" style="display:none;"></div>
+
+          <div class="admin-form-grid">
+            <div class="admin-form-field">
+              <label for="res-legal-status">Legal Review Status <span class="text-danger">*</span></label>
+              <select id="res-legal-status" class="admin-select" required>
+                <option value="pending">Pending Review</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected (Do Not Publish)</option>
+              </select>
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-safety-status">Safety Scan Status <span class="text-danger">*</span></label>
+              <select id="res-safety-status" class="admin-select" required>
+                <option value="unchecked">Unchecked</option>
+                <option value="safe">Clean / Safe</option>
+                <option value="warning">Warning (Safe but with notices)</option>
+                <option value="unsafe">Unsafe (Contains Malware/Scams)</option>
+              </select>
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-source-type">Source Code/License Category <span class="text-danger">*</span></label>
+              <select id="res-source-type" class="admin-select" required>
+                <option value="official">Official Source</option>
+                <option value="open_source">Open Source</option>
+                <option value="public_domain">Public Domain</option>
+                <option value="freeware">Freeware</option>
+                <option value="creator_approved">Creator Approved</option>
+                <option value="licensed">Licensed Commercial</option>
+                <option value="educational">Educational</option>
+                <option value="other">Other Safe Code</option>
+              </select>
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-access-type">Access & Cost Type <span class="text-danger">*</span></label>
+              <select id="res-access-type" class="admin-select" required>
+                <option value="free">Free Access</option>
+                <option value="paid">Paid Link</option>
+                <option value="freemium">Freemium</option>
+                <option value="open_source">Open Source Repository</option>
+                <option value="public_domain">Public Domain Archive</option>
+                <option value="external">External Direct Link</option>
+              </select>
+            </div>
+
+            <div class="admin-form-field full-width">
+              <label for="res-legal-notes">Legal Review Notes</label>
+              <textarea id="res-legal-notes" class="admin-textarea" rows="2" placeholder="Record license numbers, licensing agreements, or links to author approvals here..."></textarea>
+            </div>
+
+            <div class="admin-form-field full-width">
+              <label for="res-safety-notes">Safety & Scan Notes</label>
+              <textarea id="res-safety-notes" class="admin-textarea" rows="2" placeholder="Record malware analysis findings, hashes, or sandbox testing notes..."></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- SECTION 3: Technical Details -->
+        <fieldset class="admin-form-section">
+          <legend>⚙️ Technical Specifications & Details</legend>
+          <div class="admin-form-grid">
+            <div class="admin-form-field">
+              <label for="res-version">Version</label>
+              <input type="text" id="res-version" class="admin-input" placeholder="e.g. v2.4.1" />
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-platform">Platform / OS</label>
+              <input type="text" id="res-platform" class="admin-input" placeholder="e.g. Windows 11, macOS, Linux" />
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-developer">Developer/Org</label>
+              <input type="text" id="res-developer" class="admin-input" placeholder="e.g. Microsoft, Blender Foundation" />
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-author">Author / Maintainer</label>
+              <input type="text" id="res-author" class="admin-input" placeholder="e.g. Linus Torvalds" />
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-publisher">Publisher</label>
+              <input type="text" id="res-publisher" class="admin-input" placeholder="e.g. Valve, Github" />
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-language">Language</label>
+              <input type="text" id="res-language" class="admin-input" placeholder="e.g. English, Multilingual" />
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-file-size">File Size</label>
+              <input type="text" id="res-file-size" class="admin-input" placeholder="e.g. 142 MB, 2.4 GB" />
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-license-type">License Type</label>
+              <input type="text" id="res-license-type" class="admin-input" placeholder="e.g. MIT, GPL v3, Proprietary" />
+            </div>
+
+            <div class="admin-form-field">
+              <label for="res-release-year">Release Year</label>
+              <input type="number" id="res-release-year" class="admin-input" placeholder="e.g. 2026" min="1950" max="2100" />
+            </div>
+
+            <div class="admin-form-field full-width">
+              <label for="res-requirements">System Requirements</label>
+              <textarea id="res-requirements" class="admin-textarea" rows="2" placeholder="e.g. Intel i5, 8GB RAM, GTX 1060..."></textarea>
+            </div>
+
+            <div class="admin-form-field full-width">
+              <label for="res-install-guide">Installation Guide</label>
+              <textarea id="res-install-guide" class="admin-textarea" rows="3" placeholder="Step by step setup instructions for the administrator or user..."></textarea>
+            </div>
+
+            <div class="admin-form-field full-width">
+              <label for="res-features">Key Features</label>
+              <textarea id="res-features" class="admin-textarea" rows="2" placeholder="Bullets describing main software/resource benefits..."></textarea>
+            </div>
+
+            <div class="admin-form-field full-width">
+              <label for="res-limitations">Limitations or Warnings</label>
+              <textarea id="res-limitations" class="admin-textarea" rows="2" placeholder="Note down any free-tier caps, region blocks, or software bugs..."></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- SECTION 4: URLs & Resource Links -->
+        <fieldset class="admin-form-section">
+          <legend>🔗 Resource URL Links</legend>
+          
+          <div id="download-warning-box" class="admin-form-alert warning-alert" style="display:none; margin-bottom:16px;"></div>
+
+          <div style="overflow-x: auto;">
+            <div style="min-width: 800px; display: grid; grid-template-columns: 1.5fr 2fr 1.2fr 1.2fr 1fr 1fr 0.6fr 0.5fr; gap: 8px; font-weight: bold; margin-bottom: 8px; border-bottom: 2px solid var(--admin-border); padding-bottom: 8px; font-size: 14px;">
+              <div>Label *</div>
+              <div>URL *</div>
+              <div>Link Type</div>
+              <div>Source Type</div>
+              <div>Legal Status</div>
+              <div>Safety Status</div>
+              <div style="text-align: center;">Primary</div>
+              <div>Action</div>
+            </div>
+            <div id="admin-links-container">
+              <!-- Repeatable link rows loaded dynamically -->
+            </div>
+          </div>
+          
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-add-link" style="margin-top:12px;">➕ Add Link Mirror</button>
+        </fieldset>
+
+        <!-- SECTION 5: Taxonomies -->
+        <fieldset class="admin-form-section">
+          <legend>📂 Taxonomies (Categories & Tags)</legend>
+          <div class="admin-form-grid">
+            <div class="admin-form-field">
+              <label>Associated Categories</label>
+              <div class="admin-checkbox-list" id="res-categories-container">
+                <!-- Loaded dynamically by admin-forms.js -->
+                <span class="text-muted">Dynamic categories loading...</span>
+              </div>
+            </div>
+
+            <div class="admin-form-field">
+              <label>Associated Tags</label>
+              <div class="admin-checkbox-list" id="res-tags-container">
+                <!-- Loaded dynamically by admin-forms.js -->
+                <span class="text-muted">Dynamic tags loading...</span>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Form Control Buttons -->
+        <div class="admin-form-actions">
+          <a href="resources.html" class="btn btn-secondary">Cancel</a>
+          <button type="submit" class="btn btn-secondary">💾 Save Draft</button>
+          <button type="submit" id="btn-publish-form" class="btn btn-primary" disabled>📤 Publish</button>
+        </div>
+
+      </form>
+    </main>
+  </div>
+
+  <!-- Scripts Loading Order -->
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-layout.js"></script>
+  <script src="../assets/js/media-picker.js"></script>
+  <script src="../assets/js/admin-forms.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

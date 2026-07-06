@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Search Legal Educational Resources | Quantum Mentor World</title>
+  <meta name="description" content="Search across legal software, books, tools, games, watch content, news, themes, plugins, and GitHub repositories." />
+  <meta name="robots" content="noindex, follow" />
+  <!-- Replace https://quantummentorworld.com with the real production domain before launch. -->
+  <link rel="canonical" href="https://quantummentorworld.com/search.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Search Legal Educational Resources | Quantum Mentor World" />
+  <meta property="og:description" content="Search across legal software, books, tools, games, watch content, news, themes, plugins, and GitHub repositories." />
+  <meta property="og:url" content="https://quantummentorworld.com/search.html" />
+  <meta property="og:site_name" content="Quantum Mentor World" />
+  <meta property="og:image" content="https://quantummentorworld.com/assets/images/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Search Legal Educational Resources | Quantum Mentor World" />
+  <meta name="twitter:description" content="Search across legal software, books, tools, games, watch content, news, themes, plugins, and GitHub repositories." />
+  <meta name="twitter:image" content="https://quantummentorworld.com/assets/images/logo.png" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header id="site-header" role="banner">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+      <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+        <img src="assets/images/logo.png" alt="Quantum Mentor Official Logo" height="40" onerror="this.style.display='none'" />
+        <span style="font-family:var(--font-primary);font-weight:700;font-size:var(--text-xl);color:var(--primary);">Quantum Mentor World</span>
+      </a>
+      <nav aria-label="Main navigation" style="display: flex; gap: 16px;">
+        <a href="software.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Software</a>
+        <a href="books.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Books</a>
+        <a href="tools.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Tools</a>
+        <a href="games.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Games</a>
+        <a href="themes-plugins.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Themes</a>
+        <a href="watch.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">Watch</a>
+        <a href="news.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">News</a>
+        <a href="github-repos.html" style="font-size: var(--text-sm); font-weight: 500; color: var(--text-main);">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero" style="background:var(--gradient-hero);padding: var(--space-8) 0;border-bottom: 1px solid var(--border-soft);">
+      <div class="container text-center">
+        <p class="eyebrow" style="font-size: var(--text-xs); text-transform: uppercase; color: var(--primary); letter-spacing: 0.1em; font-weight: 600; margin-bottom: 8px;">Global Directory Search</p>
+        <h1 style="font-size: var(--text-4xl); margin-bottom: var(--space-6);">🔍 Search Resources</h1>
+        
+        <!-- Search Input Bar -->
+        <div class="search-bar" style="margin: 0 auto var(--space-6) auto;">
+          <span class="search-bar-icon">🔍</span>
+          <input
+            id="search-input"
+            class="search-bar-input"
+            type="text"
+            placeholder="Search software, books, tools, games, GitHub repos..."
+            aria-label="Search resources"
+          />
+          <button class="search-bar-btn" id="search-button">Search</button>
+        </div>
+
+        <div style="max-width: 600px; margin: 0 auto;">
+          <div class="legal-note" style="background: rgba(34, 197, 94, 0.05); border: 1px solid rgba(34, 197, 94, 0.15); font-size: var(--text-xs); padding: 8px 12px; border-radius: var(--radius-md); color: var(--accent-success);">
+            <strong>Directory Compliance:</strong> Safe search only queries published, approved, legal learning resources. Unsafe files are completely redacted.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls / Filters -->
+    <section class="listing-controls" style="padding: 24px 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border-soft);">
+      <div class="container">
+        <div class="filter-grid" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; align-items: center; margin-bottom: 16px;">
+          <div>
+            <select id="search-type-select" class="form-select" style="padding: 10px 14px; font-size: var(--text-sm); background-color: var(--bg-main);">
+              <option value="">All Types</option>
+              <option value="software">Software</option>
+              <option value="books">Books</option>
+              <option value="tools">Tools</option>
+              <option value="games">Games</option>
+              <option value="themes-plugins">Themes & Plugins</option>
+              <option value="watch">Watch</option>
+              <option value="news">News</option>
+              <option value="github-repositories">GitHub Repos</option>
+            </select>
+          </div>
+          <div>
+            <select id="search-sort-select" class="form-select" style="padding: 10px 14px; font-size: var(--text-sm); background-color: var(--bg-main);">
+              <option value="latest">Latest</option>
+              <option value="oldest">Oldest</option>
+              <option value="title_asc">Title A-Z</option>
+              <option value="title_desc">Title Z-A</option>
+              <option value="popular">Popular</option>
+            </select>
+          </div>
+          <div>
+            <select id="search-category-select" class="form-select" style="padding: 10px 14px; font-size: var(--text-sm); background-color: var(--bg-main);">
+              <option value="">All Categories</option>
+            </select>
+          </div>
+          <div>
+            <select id="search-tag-select" class="form-select" style="padding: 10px 14px; font-size: var(--text-sm); background-color: var(--bg-main);">
+              <option value="">All Tags</option>
+            </select>
+          </div>
+          <div>
+            <select id="search-access-select" class="form-select" style="padding: 10px 14px; font-size: var(--text-sm); background-color: var(--bg-main);">
+              <option value="">All Access Types</option>
+            </select>
+          </div>
+          <div>
+            <select id="search-source-select" class="form-select" style="padding: 10px 14px; font-size: var(--text-sm); background-color: var(--bg-main);">
+              <option value="">All Source Types</option>
+            </select>
+          </div>
+        </div>
+        <div class="filter-actions" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <div id="search-active-filters" class="active-filters" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+          <button id="search-clear-filters" class="btn btn-ghost btn-sm" style="display: none;">Clear Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="resource-section" style="padding: var(--space-8) 0;">
+      <div class="container">
+        <p id="search-status" class="result-status" style="margin-bottom: 16px; font-size: var(--text-sm); color: var(--text-muted); font-weight: 500;"></p>
+        <div id="search-loading" style="display: none;"></div>
+        <div id="search-error" style="display: none;"></div>
+        <div id="search-empty" style="display: none;"></div>
+        <div id="search-results" class="resource-grid"></div>
+        <div id="search-pagination" class="pagination" style="margin-top: var(--space-8); display: flex; justify-content: center; gap: 8px;"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" role="contentinfo">
+    <p>&copy; 2024 Quantum Mentor World — Quantum Mentor Official. All rights reserved.</p>
+    <p style="margin-top:8px;font-size:var(--text-xs); color: var(--text-subtle);">All resources are verified legal and safe.</p>
+  </footer>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/filters.js"></script>
+  <script src="assets/js/pagination.js"></script>
+  <script src="assets/js/seo.js"></script>
+  <script src="assets/js/search.js"></script>
+</body>
+</html>

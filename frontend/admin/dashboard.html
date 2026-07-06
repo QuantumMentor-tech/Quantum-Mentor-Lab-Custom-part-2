@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Dashboard — Admin | Quantum Mentor World</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+  
+  <!-- Session Protection Guard -->
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script>
+    window.AdminAuth.requireAdminPage();
+  </script>
+</head>
+<body class="admin-body">
+
+  <!-- Admin Sidebar -->
+  <aside id="admin-sidebar" class="admin-sidebar" aria-label="Admin navigation">
+    <div class="admin-sidebar-brand">
+      <img src="../assets/images/logo.png" alt="Quantum Mentor Logo" height="32" onerror="this.style.display='none'" />
+      <div class="admin-sidebar-logo-text">
+        Quantum Mentor
+        <span>Official Admin</span>
+      </div>
+    </div>
+
+    <nav class="admin-sidebar-nav" aria-label="Admin menu">
+      <div class="admin-nav-section">
+        <p class="admin-nav-section-title">Overview</p>
+        <a href="dashboard.html" class="admin-nav-link active">📊 Dashboard</a>
+      </div>
+      <div class="admin-nav-section">
+        <p class="admin-nav-section-title">Content Management</p>
+        <a href="resources.html" class="admin-nav-link">📦 Resources</a>
+        <a href="add-resource.html" class="admin-nav-link">➕ Add Resource</a>
+        <a href="categories.html" class="admin-nav-link">📂 Categories</a>
+        <a href="tags.html" class="admin-nav-link">🏷️ Tags</a>
+        <a href="media.html" class="admin-nav-link">🖼️ Media</a>
+        <a href="contact-messages.html" class="admin-nav-link">📬 Contact Messages</a>
+        <a href="reports.html" class="admin-nav-link">⚠️ Reports</a>
+      </div>
+      <div class="admin-nav-section">
+        <p class="admin-nav-section-title">System Settings</p>
+        <a href="settings.html" class="admin-nav-link">⚙️ Settings</a>
+        <a href="../index.html" class="admin-nav-link" target="_blank">🌐 View Website ↗</a>
+        <a href="#" id="admin-logout-button" class="admin-nav-link btn-logout">🚪 Logout</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Admin Main content panel -->
+  <div class="admin-main">
+    
+    <!-- Top Bar -->
+    <header class="admin-topbar">
+      <button id="sidebar-toggle" class="btn-icon" aria-label="Toggle sidebar">☰</button>
+      <div class="admin-breadcrumbs">
+        <span>Admin</span> / <span>Dashboard</span>
+      </div>
+      <div class="admin-topbar-actions">
+        <a href="../index.html" class="btn btn-secondary btn-sm" target="_blank">View Website ↗</a>
+        <div class="admin-user-pill">
+          <div class="admin-avatar">A</div>
+          <div style="text-align: left;">
+            <div id="admin-user-name" class="user-name">Loading...</div>
+            <span id="admin-user-role" class="admin-role-badge">Guest</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Panel -->
+    <main class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Dashboard Overview</h1>
+          <p class="admin-page-subtitle">Welcome back! Manage resource records, taxonomy elements, settings, and check safety compliance reviews.</p>
+        </div>
+        <a href="add-resource.html" class="btn btn-primary">➕ Add Resource</a>
+      </div>
+
+      <!-- Legal and Safety Notice Box -->
+      <div class="admin-legal-box">
+        <h3>🔒 Compliance & Legal Safety Review Guidelines</h3>
+        <p>Only publish legal, official, open-source, public-domain, freeware, creator-approved, or properly licensed content. <strong>Strictly prohibited:</strong> cracked software, pirated media, nulled scripts, leaked courses, or unsafe download URLs. Every resource must pass legal review before going public.</p>
+        <p class="text-sm text-muted">Notice: Resource mutations (create, update, delete, status toggle) will be connected to the backend CRUD endpoints in Step 14.</p>
+      </div>
+
+      <!-- Statistics Grid -->
+      <div class="admin-card-grid admin-stats-grid" id="dashboard-stats">
+        <div class="admin-stat-card">
+          <div class="stat-icon">📦</div>
+          <div class="admin-stat-value" id="stat-total">—</div>
+          <div class="admin-stat-label">Total Resources</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="stat-icon">✅</div>
+          <div class="admin-stat-value" id="stat-published">—</div>
+          <div class="admin-stat-label">Published</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="stat-icon">📝</div>
+          <div class="admin-stat-value" id="stat-draft">—</div>
+          <div class="admin-stat-label">Drafts</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="stat-icon">⏳</div>
+          <div class="admin-stat-value" id="stat-pending">—</div>
+          <div class="admin-stat-label">Pending Review</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="stat-icon">📂</div>
+          <div class="admin-stat-value" id="stat-categories">—</div>
+          <div class="admin-stat-label">Categories</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="stat-icon">🏷️</div>
+          <div class="admin-stat-value" id="stat-tags">—</div>
+          <div class="admin-stat-label">Tags</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="stat-icon">🖼️</div>
+          <div class="admin-stat-value" id="stat-media">—</div>
+          <div class="admin-stat-label">Media Files</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="stat-icon">📬</div>
+          <div class="admin-stat-value" id="stat-messages">—</div>
+          <div class="admin-stat-label">New Messages</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="stat-icon">⚠️</div>
+          <div class="admin-stat-value" id="stat-reports">—</div>
+          <div class="admin-stat-label">New Reports</div>
+        </div>
+      </div>
+
+      <!-- Quick Actions Grid -->
+      <h2 class="section-title" style="margin-top: 32px; margin-bottom: 16px;">Quick Management Links</h2>
+      <div class="admin-card-grid">
+        <a href="resources.html" class="admin-action-card">
+          <h3>📦 Manage Resources</h3>
+          <p>Search, filter, view details, and perform operations on resources records.</p>
+          <span class="action-link">Go to Resources →</span>
+        </a>
+        <a href="categories.html" class="admin-action-card">
+          <h3>📂 Categories</h3>
+          <p>Organize resources by mapping them to clean parent and child categories.</p>
+          <span class="action-link">Go to Categories →</span>
+        </a>
+        <a href="tags.html" class="admin-action-card">
+          <h3>🏷️ Tags</h3>
+          <p>Add and filter index tag keywords for faster discovery.</p>
+          <span class="action-link">Go to Tags →</span>
+        </a>
+        <a href="media.html" class="admin-action-card">
+          <h3>🖼️ Media Library</h3>
+          <p>Upload and preview cover images and screenshots safely.</p>
+          <span class="action-link">Go to Media →</span>
+        </a>
+        <a href="settings.html" class="admin-action-card">
+          <h3>⚙️ Site Settings</h3>
+          <p>Configure general parameters, disclaimers, taglines, and emails.</p>
+          <span class="action-link">Go to Settings →</span>
+        </a>
+      </div>
+
+      <!-- Recent Activity Placeholder -->
+      <div class="admin-activity-section" style="margin-top: 32px;">
+        <h2 class="section-title" style="margin-bottom: 16px;">Recent System Events</h2>
+        <div class="admin-table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Event Description</th>
+                <th>Type</th>
+                <th>Operator</th>
+                <th>Timestamp</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Admin dashboard initialized</strong></td>
+                <td><span class="admin-badge badge-neutral">System</span></td>
+                <td>System Agent</td>
+                <td class="text-sm text-muted">Just now</td>
+              </tr>
+              <tr>
+                <td>Database connections established successfully</td>
+                <td><span class="admin-badge badge-success">Database</span></td>
+                <td>System Agent</td>
+                <td class="text-sm text-muted">Recently</td>
+              </tr>
+              <tr>
+                <td>Admin session authentication check passed</td>
+                <td><span class="admin-badge badge-info">Security</span></td>
+                <td>Local Admin</td>
+                <td class="text-sm text-muted">Recently</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts Loading Order -->
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-layout.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

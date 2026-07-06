@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Disallow private and administrative folders
+Disallow: /admin/
+Disallow: /api/
+Disallow: /backend/
+Disallow: /database/
+Disallow: /docs/
+Disallow: /uploads/
+
+# Disallow sensitive dynamic query parameter patterns to prevent index duplication
+Disallow: /*?token=
+Disallow: /*?id=
+Disallow: /*?admin=
+
+# Point search engine crawlers to our XML sitemap catalog
+Sitemap: https://quantummentorworld.com/sitemap.xml

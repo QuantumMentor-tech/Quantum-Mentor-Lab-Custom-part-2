@@ -1,0 +1,10 @@
+Place the existing Quantum Mentor Official / Quantum Mentor World logo in this folder as logo.png.
+Do not create or generate a new logo.
+
+Expected logo files:
+  - logo.png              (graphic/icon logo)
+  - logo-text.png         (text logo)
+
+Source files already in project root:
+  - "Quantum Mentor logo design.png"   → rename/copy to logo.png
+  - "QuantumMentor Text Logo.png"      → rename/copy to logo-text.png

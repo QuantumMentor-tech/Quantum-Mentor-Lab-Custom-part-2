@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Site Settings — Admin | Quantum Mentor World</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+  
+  <!-- Session Protection Guard -->
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script>
+    window.AdminAuth.requireAdminPage();
+  </script>
+</head>
+<body class="admin-body">
+
+  <!-- Admin Sidebar -->
+  <aside id="admin-sidebar" class="admin-sidebar" aria-label="Admin navigation">
+    <div class="admin-sidebar-brand">
+      <img src="../assets/images/logo.png" alt="Quantum Mentor Logo" height="32" onerror="this.style.display='none'" />
+      <div class="admin-sidebar-logo-text">
+        Quantum Mentor
+        <span>Official Admin</span>
+      </div>
+    </div>
+
+    <nav class="admin-sidebar-nav" aria-label="Admin menu">
+      <div class="admin-nav-section">
+        <p class="admin-nav-section-title">Overview</p>
+        <a href="dashboard.html" class="admin-nav-link">📊 Dashboard</a>
+      </div>
+      <div class="admin-nav-section">
+        <p class="admin-nav-section-title">Content Management</p>
+        <a href="resources.html" class="admin-nav-link">📦 Resources</a>
+        <a href="add-resource.html" class="admin-nav-link">➕ Add Resource</a>
+        <a href="categories.html" class="admin-nav-link">📂 Categories</a>
+        <a href="tags.html" class="admin-nav-link">🏷️ Tags</a>
+        <a href="media.html" class="admin-nav-link">🖼️ Media</a>
+        <a href="contact-messages.html" class="admin-nav-link">📬 Contact Messages</a>
+        <a href="reports.html" class="admin-nav-link">⚠️ Reports</a>
+      </div>
+      <div class="admin-nav-section">
+        <p class="admin-nav-section-title">System Settings</p>
+        <a href="settings.html" class="admin-nav-link active">⚙️ Settings</a>
+        <a href="../index.html" class="admin-nav-link" target="_blank">🌐 View Website ↗</a>
+        <a href="#" id="admin-logout-button" class="admin-nav-link btn-logout">🚪 Logout</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Admin Main Content -->
+  <div class="admin-main">
+    
+    <!-- Top Bar -->
+    <header class="admin-topbar">
+      <button id="sidebar-toggle" class="btn-icon" aria-label="Toggle sidebar">☰</button>
+      <div class="admin-breadcrumbs">
+        <span>Admin</span> / <span>Settings</span>
+      </div>
+      <div class="admin-topbar-actions">
+        <a href="../index.html" class="btn btn-secondary btn-sm" target="_blank">View Website ↗</a>
+        <div class="admin-user-pill">
+          <div class="admin-avatar">A</div>
+          <div style="text-align: left;">
+            <div id="admin-user-name" class="user-name">Loading...</div>
+            <span id="admin-user-role" class="admin-role-badge">Guest</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Panel -->
+    <main class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Site Configuration</h1>
+          <p class="admin-page-subtitle">Configure identity headers, contact endpoints, disclaimers, and toggles.</p>
+        </div>
+      </div>
+
+      <form id="admin-settings-form" class="admin-form">
+        
+        <!-- SECTION 1: Site Identity -->
+        <fieldset class="admin-form-section">
+          <legend>⚙️ Site Identity</legend>
+          <div class="admin-form-grid">
+            <div class="admin-form-field">
+              <label for="set-site-name">Site Title</label>
+              <input type="text" id="set-site-name" class="admin-input" value="Quantum Mentor World" />
+            </div>
+
+            <div class="admin-form-field">
+              <label for="set-brand-name">Brand Name (Logo Text)</label>
+              <input type="text" id="set-brand-name" class="admin-input" value="Quantum Mentor Official" />
+            </div>
+
+            <div class="admin-form-field full-width">
+              <label for="set-tagline">Tagline</label>
+              <input type="text" id="set-tagline" class="admin-input" value="The Ultimate Repository of Legal, Official & Developer Resources." />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- SECTION 2: Contact Information -->
+        <fieldset class="admin-form-section">
+          <legend>✉️ Contact & Footers</legend>
+          <div class="admin-form-grid">
+            <div class="admin-form-field">
+              <label for="set-email">System Email</label>
+              <input type="email" id="set-email" class="admin-input" value="contact@quantummentor.local" />
+            </div>
+
+            <div class="admin-form-field">
+              <label for="set-footer">Footer Copyright Notice</label>
+              <input type="text" id="set-footer" class="admin-input" value="© 2026 Quantum Mentor Official. All rights reserved." />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- SECTION 3: Legal Disclaimers -->
+        <fieldset class="admin-form-section">
+          <legend>⚖️ Legal notice disclaimers</legend>
+          <div class="admin-form-grid">
+            <div class="admin-form-field full-width">
+              <label for="set-legal-disclaimer">Global Disclaimer Text</label>
+              <textarea id="set-legal-disclaimer" class="admin-textarea" rows="4">Quantum Mentor Official provides directories of legal, open-source, and freeware software. We strictly verify download mirrors and do not promote, store, or license cracked, nulled, or pirated copyright items. Users download external developer software at their own risk.</textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- SECTION 4: System Policies -->
+        <fieldset class="admin-form-section highlight-section">
+          <legend>🚨 System Policies & Operations</legend>
+          <div class="admin-form-grid">
+            
+            <div class="admin-form-field" style="display:flex; align-items:center; gap:12px;">
+              <label class="admin-switch">
+                <input type="checkbox" id="set-allow-reports" checked />
+                <span class="slider-round"></span>
+              </label>
+              <div>
+                <label for="set-allow-reports" style="margin-bottom:0; font-weight:600;">Enable User Report Flags</label>
+                <span class="text-xs text-muted" style="display:block;">Allows users to report broken download mirrors directly from details cards.</span>
+              </div>
+            </div>
+
+            <div class="admin-form-field" style="display:flex; align-items:center; gap:12px;">
+              <label class="admin-switch">
+                <input type="checkbox" id="set-maintenance" />
+                <span class="slider-round"></span>
+              </label>
+              <div>
+                <label for="set-maintenance" style="margin-bottom:0; font-weight:600;">Enable Maintenance Mode</label>
+                <span class="text-xs text-muted" style="display:block;">Restricts public visitor views, displaying a "Down for Scheduled Maintenance" page.</span>
+              </div>
+            </div>
+
+          </div>
+        </fieldset>
+
+        <!-- Controls Action -->
+        <div class="admin-form-actions">
+          <button type="submit" class="btn btn-primary">⚙️ Save Site Settings</button>
+        </div>
+        <p class="text-xs text-muted text-center" style="margin-top:12px;">Notice: Settings save API will be connected in Step 14 or later.</p>
+      </form>
+    </main>
+  </div>
+
+  <!-- Scripts Loading Order -->
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-layout.js"></script>
+  <script src="../assets/js/admin-settings.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

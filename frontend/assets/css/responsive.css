@@ -1,0 +1,145 @@
+/* ============================================================
+   Quantum Mentor World — Responsive CSS
+   responsive.css — Breakpoints and mobile-first media queries
+   ============================================================ */
+
+/* ─── Breakpoint Reference ───────────────────────────────────
+   xs:  < 480px    Mobile small
+   sm:  480–768px  Mobile
+   md:  768–1024px Tablet
+   lg:  1024–1440px Desktop
+   xl:  > 1440px   Large Desktop
+   ─────────────────────────────────────────────────────────── */
+
+/* ─── Extra Small: < 480px ───────────────────────────────────── */
+@media (max-width: 479px) {
+  :root {
+    --text-5xl: 2rem;
+    --text-4xl: 1.75rem;
+    --text-3xl: 1.5rem;
+  }
+
+  .container {
+    padding: 0 var(--space-4);
+  }
+
+  .page-placeholder h1 {
+    font-size: var(--text-3xl);
+  }
+
+  .page-placeholder p {
+    font-size: var(--text-base);
+  }
+
+  #site-header {
+    padding: 0 var(--space-4);
+  }
+}
+
+/* ─── Small: 480px – 767px ───────────────────────────────────── */
+@media (min-width: 480px) and (max-width: 767px) {
+  :root {
+    --text-5xl: 2.25rem;
+    --text-4xl: 1.875rem;
+  }
+
+  .container {
+    padding: 0 var(--space-5);
+  }
+}
+
+/* ─── Medium: 768px – 1023px (Tablet) ───────────────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding: 0 var(--space-6);
+  }
+}
+
+/* ─── Large: 1024px – 1439px (Desktop) ──────────────────────── */
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--space-8);
+  }
+}
+
+/* ─── Extra Large: > 1440px ──────────────────────────────────── */
+@media (min-width: 1440px) {
+  .container {
+    padding: 0 var(--space-12);
+  }
+}
+
+/* ─── Mobile Navigation ──────────────────────────────────────── */
+@media (max-width: 1023px) {
+  #site-header {
+    padding: 0 var(--space-4);
+  }
+}
+
+/* ─── Mobile Layout & Controls Stacking ─────────────────────── */
+@media (max-width: 767px) {
+  .controls-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .controls-grid > div {
+    width: 100%;
+  }
+
+  .controls-grid #resource-sort-select {
+    width: 100%;
+  }
+
+  .page-hero {
+    padding: var(--space-8) 0;
+  }
+
+  #site-header {
+    height: auto;
+    padding: var(--space-4) 0;
+  }
+
+  #site-header .container {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  #site-header nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2) var(--space-4);
+  }
+  .detail-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .detail-info-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  #site-header nav a {
+    font-size: var(--text-xs);
+  }
+  
+  .detail-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Print Styles ────────────────────────────────────────────── */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  #site-header,
+  #site-footer,
+  .no-print {
+    display: none;
+  }
+}

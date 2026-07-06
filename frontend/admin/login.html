@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Admin Login — Quantum Mentor World</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+  <script>
+    // Redirect if already authenticated
+    if (sessionStorage.getItem('qmw_admin_token')) {
+      window.location.href = 'dashboard.html';
+    }
+  </script>
+</head>
+<body class="admin-login-page">
+
+  <div class="admin-login-card">
+    <div class="admin-login-logo">
+      <img src="../assets/images/logo.png" alt="Quantum Mentor Official Logo" height="50" onerror="this.style.display='none'" />
+    </div>
+    <h1 class="admin-login-title">Admin Access</h1>
+    <p class="admin-login-subtitle">Quantum Mentor World — Authorized Personnel Only</p>
+
+    <!-- Login Error Message -->
+    <div id="admin-login-error" class="alert alert-danger" style="display:none;margin-bottom:var(--space-5);"></div>
+
+    <form id="admin-login-form" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="admin-email">Email Address</label>
+        <input
+          id="admin-email"
+          class="form-input"
+          type="email"
+          placeholder="Enter admin email address"
+          autocomplete="email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="admin-password">Password</label>
+        <input
+          id="admin-password"
+          class="form-input"
+          type="password"
+          placeholder="Enter admin password"
+          autocomplete="current-password"
+          required
+        />
+      </div>
+
+      <!-- Loading State Indicator -->
+      <div id="admin-login-loading" style="display:none; text-align:center; margin: 12px 0;">
+        <span class="spinner" style="display:inline-block; width:24px; height:24px; border:3px solid rgba(255,255,255,0.1); border-radius:50%; border-top-color:var(--primary); animation:spin 1s ease infinite;"></span>
+        <p style="font-size: var(--text-xs); color: var(--text-muted); margin-top:6px;">Authenticating credentials...</p>
+      </div>
+
+      <button type="submit" id="admin-login-button" class="btn btn-primary" style="width:100%;margin-top:var(--space-4);">
+        Sign In
+      </button>
+    </form>
+
+    <div style="text-align:center; margin-top: 16px;">
+      <a href="../index.html" class="btn btn-ghost btn-sm">← Back to Website</a>
+    </div>
+
+    <p style="text-align:center;margin-top:var(--space-5);font-size:var(--text-xs);color:var(--text-subtle);">
+      &copy; 2024 Quantum Mentor Official. Unauthorized access is prohibited.
+    </p>
+  </div>
+
+  <style>
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Manage Resources — Admin | Quantum Mentor World</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+  
+  <!-- Session Protection Guard -->
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script>
+    window.AdminAuth.requireAdminPage();
+  </script>
+</head>
+<body class="admin-body">
+
+  <!-- Admin Sidebar -->
+  <aside id="admin-sidebar" class="admin-sidebar" aria-label="Admin navigation">
+    <div class="admin-sidebar-brand">
+      <img src="../assets/images/logo.png" alt="Quantum Mentor Logo" height="32" onerror="this.style.display='none'" />
+      <div class="admin-sidebar-logo-text">
+        Quantum Mentor
+        <span>Official Admin</span>
+      </div>
+    </div>
+
+    <nav class="admin-sidebar-nav" aria-label="Admin menu">
+      <div class="admin-nav-section">
+        <p class="admin-nav-section-title">Overview</p>
+        <a href="dashboard.html" class="admin-nav-link">📊 Dashboard</a>
+      </div>
+      <div class="admin-nav-section">
+        <p class="admin-nav-section-title">Content Management</p>
+        <a href="resources.html" class="admin-nav-link active">📦 Resources</a>
+        <a href="add-resource.html" class="admin-nav-link">➕ Add Resource</a>
+        <a href="categories.html" class="admin-nav-link">📂 Categories</a>
+        <a href="tags.html" class="admin-nav-link">🏷️ Tags</a>
+        <a href="media.html" class="admin-nav-link">🖼️ Media</a>
+        <a href="contact-messages.html" class="admin-nav-link">📬 Contact Messages</a>
+        <a href="reports.html" class="admin-nav-link">⚠️ Reports</a>
+      </div>
+      <div class="admin-nav-section">
+        <p class="admin-nav-section-title">System Settings</p>
+        <a href="settings.html" class="admin-nav-link">⚙️ Settings</a>
+        <a href="../index.html" class="admin-nav-link" target="_blank">🌐 View Website ↗</a>
+        <a href="#" id="admin-logout-button" class="admin-nav-link btn-logout">🚪 Logout</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Admin Main Content -->
+  <div class="admin-main">
+    
+    <!-- Top Bar -->
+    <header class="admin-topbar">
+      <button id="sidebar-toggle" class="btn-icon" aria-label="Toggle sidebar">☰</button>
+      <div class="admin-breadcrumbs">
+        <span>Admin</span> / <span>Resources</span>
+      </div>
+      <div class="admin-topbar-actions">
+        <a href="../index.html" class="btn btn-secondary btn-sm" target="_blank">View Website ↗</a>
+        <div class="admin-user-pill">
+          <div class="admin-avatar">A</div>
+          <div style="text-align: left;">
+            <div id="admin-user-name" class="user-name">Loading...</div>
+            <span id="admin-user-role" class="admin-role-badge">Guest</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Panel -->
+    <main class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Manage Resources</h1>
+          <p class="admin-page-subtitle">View, search, filter, and moderate the resources directories.</p>
+        </div>
+        <a href="add-resource.html" class="btn btn-primary">➕ Add Resource</a>
+      </div>
+
+      <!-- Filters & Actions Toolbar -->
+      <section class="admin-filter-panel" aria-label="Filters and controls">
+        <div class="filter-row">
+          <div class="filter-group flex-grow">
+            <label for="admin-resource-search" class="sr-only">Search resources</label>
+            <input type="text" id="admin-resource-search" class="admin-input" placeholder="🔍 Search resources by title, developer, author..." />
+          </div>
+          
+          <div class="filter-group">
+            <select id="admin-resource-type" class="admin-select">
+              <option value="">All Types</option>
+              <option value="software">Software</option>
+              <option value="book">Book</option>
+              <option value="tool">Tool</option>
+              <option value="game">Game</option>
+              <option value="theme_plugin">Theme/Plugin</option>
+              <option value="watch">Watch Feed</option>
+              <option value="news">News</option>
+              <option value="github_repo">GitHub Repo</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <select id="admin-resource-status" class="admin-select">
+              <option value="">All Statuses</option>
+              <option value="published">Published</option>
+              <option value="draft">Draft</option>
+              <option value="pending_review">Pending Review</option>
+              <option value="rejected">Rejected</option>
+              <option value="archived">Archived</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <select id="admin-resource-legal" class="admin-select">
+              <option value="">Legal: All</option>
+              <option value="pending">Pending</option>
+              <option value="approved">Approved</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <select id="admin-resource-safety" class="admin-select">
+              <option value="">Safety: All</option>
+              <option value="unchecked">Unchecked</option>
+              <option value="safe">Safe</option>
+              <option value="warning">Warning</option>
+              <option value="unsafe">Unsafe</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <select id="admin-resource-sort" class="admin-select">
+              <option value="latest">Sort: Latest</option>
+              <option value="popular">Sort: Popular</option>
+              <option value="title_asc">Sort: A-Z</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Bulk action controls placeholder -->
+        <div class="bulk-actions-bar" style="margin-top: 16px; display: flex; gap: 8px; align-items: center;">
+          <span class="text-muted text-sm">Bulk Actions:</span>
+          <select id="bulk-action-select" class="admin-select select-sm" disabled>
+            <option value="">Select Action (Step 14)</option>
+            <option value="publish">Publish Selected</option>
+            <option value="draft">Revert to Draft</option>
+            <option value="delete">Delete Selected</option>
+          </select>
+          <button class="btn btn-secondary btn-sm" disabled>Apply</button>
+        </div>
+      </section>
+
+      <!-- Resources Table Panel -->
+      <section class="admin-table-wrapper" id="admin-resource-table-container" aria-label="Resources list">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Legal Status</th>
+              <th>Safety Status</th>
+              <th>Featured</th>
+              <th>Trending</th>
+              <th>Updated</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-resource-tbody">
+            <!-- Dynamically populated rows from admin-resources.js -->
+            <tr>
+              <td colspan="9" style="text-align: center; padding: 32px 0;">
+                <div class="admin-loading-state">
+                  <div class="admin-spinner"></div>
+                  <p>Bootstrapping admin resources panel...</p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Pagination Placeholder Container -->
+      <footer class="admin-pagination-container" id="admin-pagination" aria-label="Table navigation">
+        <!-- Rendered by JS -->
+      </footer>
+    </main>
+  </div>
+
+  <!-- Scripts Loading Order -->
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-layout.js"></script>
+  <script src="../assets/js/admin-resources.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>
